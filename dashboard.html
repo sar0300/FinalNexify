@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Budget Tracker</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body id="body">
+
+    <header>
+        <div class="logo">Budget Tracker</div>
+        <nav>
+            <ul class="nav-links">
+                
+            </ul>
+        </nav>
+        <div class="profile">
+            <img src="profile-placeholder.png" alt="Profile Picture">
+            <span>yaatri30</span>
+        </div>
+    </header>
+
+    <aside>
+        <ul class="sidebar-links">
+            <li><a href="distribution.html">Distribution</a></li>
+            <li><a href="expences.html">Expences</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <h1 style="color: lightcoral;">Dashboard</h1>
+        <p style="color: lightcoral;">This is your dashboard where you can track your budget.</p>
+    </main>
+
+
+    <main>
+        <section class="overview">
+            <div class="card">
+                <h2>Monthly Budget</h2>
+                <p>30000</p>
+            </div>
+            <div class="card">
+                <h2>Total Expenses</h2>
+                <p>20000</p>
+            </div>
+            <div class="card">
+                <h2>Remaining Balance</h2>
+                <p>10000</p>
+            </div>
+            <div class="card">
+                <h2>Percentage Used</h2>
+                <p>67%</p>
+            </div>
+        </section>
+
+
+    <script>
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+            } else {
+                document.body.classList.add('light');
+            }
+        }
+        window.onload = loadTheme;
+    </script>
+
+</body>
+</html>

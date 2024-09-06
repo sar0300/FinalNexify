@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link rel="stylesheet" href="expences.css">
+</head>
+<body>
+    <table class="bnb">
+        <tr>
+            <td colspan="3" class="title">Expenses</td>
+        </tr>
+        <tr>
+            <td class="lbl">Select Category</td>
+            <td>:</td>
+            <td>
+                <div class="categories">
+                    <label>
+                        <input type="radio" id="utilities" name="category" value="utilities" required>
+                        Utilities
+                    </label>
+                    <label>
+                        <input type="radio" id="entertainment" name="category" value="entertainment">
+                        Entertainment
+                    </label>
+                    <label>
+                        <input type="radio" id="food" name="category" value="food">
+                        Food
+                    </label>
+                    <label>
+                        <input type="radio" id="health" name="category" value="health">
+                        Health
+                    </label>
+                    <label>
+                        <input type="radio" id="transport" name="category" value="transport">
+                        Transport
+                    </label>
+                    <label>
+                        <input type="radio" id="others" name="category" value="other">
+                        Others
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Amount</td>
+            <td>:</td>
+            <td>
+                <input type="number" id="txtAmount" name="amount" class="txtbx" required>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td style="text-align: right;">
+                <input type="submit" name="submit" id="btn" value="ADD">
+            </td>
+        </tr>
+    </table>
+
+    <script>
+    document.querySelector('#btn').addEventListener('click', function(event) {
+        event.preventDefault(); 
+
+        const category = document.querySelector('input[name="category"]:checked').value;
+        const amount = document.getElementById('txtAmount').value;
+
+        const formData = { category, amount };
+
+        fetch('http://127.0.0.1:5000/add_expense', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);  // Display the server's response
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    </script>
+</body>
+</html>

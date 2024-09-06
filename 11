@@ -1,0 +1,9 @@
+ id       | int          | NO   | PRI | NULL    | auto_increment |
+| fname    | varchar(10)  | NO   |     | NULL    |                |
+| mname    | varchar(10)  | NO   |     | NULL    |                |
+| lname    | varchar(10)  | NO   |     | NULL    |                |
+| email    | varchar(20)  | NO   |     | NULL    |                |
+| mno      | bigint       | YES  |     | NULL    |                |
+| username | varchar(50)  | NO   | UNI | NULL    |                |
+| password | varchar(255) | NO   |     | NULL    |                |
+| gender 

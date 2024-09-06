@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <p style="color:darkblue; font-size: 30px; text-align: left; margin: 0px; padding: 0px;">Settings</p>
+
+    <!-- Theme Selection -->
+    <div class="section">
+        <h3>Select Theme</h3>
+        <div class="theme-options">
+            <label for="light">Light Theme</label>
+            <input type="radio" id="light" name="theme">
+
+            <label for="dark">Dark Theme</label>
+            <input type="radio" id="dark" name="theme">
+        </div>
+    </div>
+
+    <!-- Monthly Limit -->
+    <div class="section">
+        <h3>Set Monthly Limit</h3>
+        <label for="monthly-limit">Monthly Limit:</label>
+        <input type="number" id="monthly-limit" placeholder="Enter your limit">
+    </div>
+
+    <!-- Change Username -->
+    <div class="section">
+        <h3>Change Username</h3>
+        <label for="username">New Username:</label>
+        <input type="text" id="username" placeholder="Enter your new username">
+    </div>
+
+    <!-- Terms and Conditions -->
+    <div class="section">
+        <h3>Terms and Conditions</h3>
+        <textarea id="terms" rows="5" readonly>
+        By using this website, you agree to the following terms and conditions: 
+        1. You are solely responsible for managing your budget.
+        2. We do not guarantee accuracy of the information provided.
+        3. Your data may be stored securely on our servers.
+        4. Any misuse of the website may result in suspension of your account.
+        5. These terms can be updated anytime without prior notice.
+        </textarea>
+    </div>
+
+    <script>
+        const lightRadio = document.getElementById('light');
+        const darkRadio = document.getElementById('dark');
+
+        function applyTheme() {
+            if (lightRadio.checked) {
+                document.body.classList.remove('dark');
+                document.body.classList.add('light');
+                localStorage.setItem('theme', 'light'); 
+            } else if (darkRadio.checked) {
+                document.body.classList.remove('light');
+                document.body.classList.add('dark');
+                localStorage.setItem('theme', 'dark'); 
+            }
+        }
+
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                darkRadio.checked = true;
+                document.body.classList.add('dark');
+            } else {
+                lightRadio.checked = true;
+                document.body.classList.add('light');
+            }
+        }
+
+        lightRadio.addEventListener('change', applyTheme);
+        darkRadio.addEventListener('change', applyTheme);
+
+        window.onload = loadTheme;
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h1>PERSONAL BUDGET TRACKER</h1>
+            <p style="font-size: 1.2em;">Track, Save, and Grow: Your Finances Simplified.</p>
+        </div>
+
+        <div id="form">
+            <h1 class="form-title">Register here</h1>
+            <form id="register-form">
+            
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" name="fname" id="fname" required>
+                </div>
+                <div class="form-group">
+                    <label for="mname">Middle Name</label>
+                    <input type="text" name="mname" id="mname" required>
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" name="lname" id="lname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mno">Mobile Number</label>
+                    <input type="text" name="mno" id="mno" required>
+                </div>
+                <div class="form-group">
+                    <label for="uname">Username</label>
+                    <input type="text" name="uname" id="uname" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required>
+                </div>
+                <div class="form-group gender">
+                    <label>Select Gender:</label>
+                    <input type="radio" name="gender" value="male" id="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" value="female" id="female">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" value="other" id="other">
+                    <label for="other">Other</label>
+                </div>
+                <input type="submit" value="Sign Up" id="btnSignUp">
+            </form>
+            <p>Already have an account? <a href="login.html" style="color: white;">Login here</a></p>
+        </div>
+    </div>
+
+    <script>
+    document.querySelector('#register-form').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        const formData = {
+            fname: document.getElementById('fname').value,
+            mname: document.getElementById('mname').value,
+            lname: document.getElementById('lname').value,
+            email: document.getElementById('email').value,
+            mno: document.getElementById('mno').value,
+            uname: document.getElementById('uname').value,
+            password: document.getElementById('password').value,
+            gender: document.querySelector('input[name="gender"]:checked').value
+        };
+
+        fetch('http://127.0.0.1:5000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);  // Display the server's response
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+    </script>
+</body>
+</html>

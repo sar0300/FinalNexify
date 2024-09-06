@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #e0f7fa;
+    color: white;
+    padding: 20px;
+}
+
+table.bnb {
+    width: 80%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    color: white;
+    background: url('final11.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table.bnb td {
+    padding: 10px;
+}
+
+.title {
+    background-color: #007bff;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.lbl {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="text"].txtbx {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: lightblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type="submit"]:hover {
+    background-color: hotpink;
+}
+
+label {
+    font-size: 20px;
+}
+
+.categories {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.categories label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.categories input[type="radio"] {
+    margin-right: 10px;
+}
